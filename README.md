@@ -475,7 +475,7 @@ urlpatterns = [
 
 ### 6.2 URLs do projeto
 
-Abra o arquivo `django_tutorial/urls.py` e adicione a rota do portfólio:
+Abra o arquivo `config/urls.py` e adicione a rota do portfólio:
 
 ```python
 from django.contrib import admin
