@@ -2,7 +2,7 @@
 
 {% block title %}Início - Meu Portfólio{% endblock %}
 
-{% block header_title %}João da Silva{% endblock %}
+{% block header_title %}{{profile.name}}{% endblock %}
 
 {% block extra_css %}
 .perfil {
@@ -50,41 +50,37 @@
 {% endblock %}
 
 {% block content %}
-<div class="perfil">
-    <img src="https://via.placeholder.com/180" alt="Foto do Aluno">
-    <h2>João da Silva</h2>
-    <p>Estudante de Sistemas de Informação - UAST/UFRPE</p>
+
+<div class="perfil"><img src="{{ projeto.profile_image.url }}" alt="Foto do Aluno">
+    <h2>{{profile.name}}</h2>
+    <p>{{profile.course}}</p>
 </div>
 
 <div class="secao">
     <h3>Sobre Mim</h3>
     <p>
-        Olá! Sou estudante de Sistemas de Informação na UAST/UFRPE.
-        Tenho interesse em desenvolvimento web, ciência de dados e
-        inteligência artificial. Busco sempre aprender novas tecnologias
-        e contribuir com projetos open source.
+        {{profile.description}}
     </p>
 </div>
 
 <div class="secao">
     <h3>Dados Pessoais</h3>
     <ul>
-        <li><strong>Nome:</strong> João da Silva</li>
-        <li><strong>Curso:</strong> Bacharelado em Sistemas de Informação</li>
-        <li><strong>Período:</strong> 5º</li>
-        <li><strong>E-mail:</strong> joao.silva@ufrpe.br</li>
-        <li><strong>GitHub:</strong> github.com/joaosilva</li>
-        <li><strong>LinkedIn:</strong> linkedin.com/in/joaosilva</li>
+        <li><strong>Nome:</strong> {{profile.name}}</li>
+        <li><strong>Curso:</strong> {{profile.course}}</li>
+        <li><strong>Período:</strong> {{profile.period}}</li>
+        <li><strong>E-mail:</strong> {{profile.email}}</li>
+        <li><strong>GitHub:</strong> {{profile.github}}</li>
+        <li><strong>LinkedIn:</strong>{{profile.linkedin}}</li>
     </ul>
 </div>
 
 <div class="secao">
     <h3>Cursos e Certificados</h3>
     <ul>
-        <li>Python para Data Science - Coursera (2025)</li>
-        <li>Django para Iniciantes - Udemy (2025)</li>
-        <li>Git e GitHub Essencial - DIO (2024)</li>
-        <li>Introdução ao Machine Learning - Stanford Online (2024)</li>
+        {%for cert in certificado%}
+            <li> {{certificado.description}}</li>
+            {% endfor %}
     </ul>
 </div>
 {% endblock %}
