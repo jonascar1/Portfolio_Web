@@ -15,3 +15,6 @@ def projetos(request):
     projeto = Projeto.objects.all().first()
     
     return render(request, 'portfolio/projetos.html', {"projeto": projeto})
+
+def contato(request):
+    return render(request,'portfolio/projetos.html')

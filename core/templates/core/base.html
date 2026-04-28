@@ -51,7 +51,7 @@
             margin-top: 40px;
         }
         {% block extra_css %}{% endblock %}
-    </style>
+    </style> 
 </head>
 <body>
     <header>
@@ -61,6 +61,7 @@
     <nav>
         <a href="{% url 'portfolio:home' %}">Início</a>
         <a href="{% url 'portfolio:projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:contato' %}">Contato</a>
     </nav>
 
     <div class="container">
