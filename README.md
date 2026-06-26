@@ -5,7 +5,7 @@ Projeto acadêmico composto por **dois projetos Django independentes** que se co
 - **Portfolio Web** — exibe informações pessoais, projetos e certificados. Possui API REST com autenticação JWT e integração com o microserviço de notificações. Roda na porta **8000**.
 - **Microserviço de Notificações** — serviço independente responsável por criar e gerenciar notificações via API REST. Roda na porta **8001**.
 
-> Cada projeto tem sua **própria virtual venv** e deve ser executado em um **terminal separado**.
+> Cada projeto tem sua **própria venv** e deve ser executado em um **terminal separado**.
 
 ---
 
@@ -63,6 +63,12 @@ Instale as dependências:
 pip install -r requirements.txt
 ```
 
+Agora **entre na subpasta** do projeto Django:
+
+```bash
+cd notificacao_ms
+```
+
 Aplique as migrations:
 
 ```bash
@@ -81,7 +87,7 @@ Siga as instruções: informe usuário, e-mail e senha.
 
 ## 3. Obter a API Key do Microserviço
 
-Inicie o servidor do microserviço:
+Inicie o servidor do microserviço (continue na pasta `notificacao_ms`):
 
 ```bash
 python manage.py runserver 8001
@@ -108,7 +114,7 @@ Abra um **novo terminal** e entre na pasta do Portfolio:
 cd Portfolio_Web
 ```
 
-Crie e ative a virtualenv **deste projeto** (separada da anterior):
+Crie e ative a venv **deste projeto** (separada da anterior):
 
 ```bash
 python3 -m venv venv
@@ -120,9 +126,28 @@ source venv/bin/activate
 Instale as dependências:
 
 ```bash
-cd notificacao_ms
 pip install -r requirements.txt
 ```
+
+Agora **entre na subpasta** do projeto Django:
+
+```bash
+cd PORTFOLIO_WEB
+```
+
+Aplique as migrations:
+
+```bash
+python manage.py migrate
+```
+
+Crie um superusuário (necessário para acessar o Admin):
+
+```bash
+python manage.py createsuperuser
+```
+
+Siga as instruções: informe usuário, e-mail e senha.
 
 ---
 
@@ -143,26 +168,40 @@ Substitua `COLE_AQUI_O_HASH_DA_EMPRESA` pelo hash copiado no passo anterior.
 
 ## 6. Iniciar o Portfolio Web
 
-Ainda no terminal do Portfolio, com a venv ativada:
+Ainda no terminal do Portfolio, com a venv ativada (na pasta raiz do Portfolio):
 
 ```bash
-python manage.py migrate
-python manage.py createsuperuser
 python manage.py runserver 8000
 ```
 
-Acesse o Portfolio em: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+Acesse o Portfolio em: [http://127.0.0.1:8000/portfolio/](http://127.0.0.1:8000/portfolio/)
 
 ---
 
 ## Ordem de Execução (Resumo)
 
-| Terminal   | Projeto        | Comando                            | URL                       |
-|------------|----------------|------------------------------------|---------------------------|
-| Terminal 1 | Microserviço   | `python manage.py runserver 8001`  | http://127.0.0.1:8001     |
-| Terminal 2 | Portfolio      | `python manage.py runserver 8000`  | http://127.0.0.1:8000     |
+### Terminal 1 - Microserviço
 
->O microserviço **deve estar rodando antes** do Portfolio ser acessado.
+```bash
+cd Microservico-Notificacao
+source venv/bin/activate
+cd notificacao_ms
+python manage.py runserver 8001
+```
+
+**URL:** http://127.0.0.1:8001
+
+### Terminal 2 - Portfolio
+
+```bash
+cd Portfolio_Web
+source venv/bin/activate
+python manage.py runserver 8000
+```
+
+**URL:** http://127.0.0.1:8000
+
+O microserviço **deve estar rodando antes** do Portfolio ser acessado.
 
 ---
 
@@ -226,7 +265,6 @@ Acesse [http://127.0.0.1:8001/admin/](http://127.0.0.1:8001/admin/) e:
 4. Salve
 
 ---
-
 
 ### Testando o Sino de Notificações
 
