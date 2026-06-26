@@ -5,7 +5,7 @@ Projeto acadêmico composto por **dois projetos Django independentes** que se co
 - **Portfolio Web** — exibe informações pessoais, projetos e certificados. Possui API REST com autenticação JWT e integração com o microserviço de notificações. Roda na porta **8000**.
 - **Microserviço de Notificações** — serviço independente responsável por criar e gerenciar notificações via API REST. Roda na porta **8001**.
 
-> Cada projeto tem sua **própria virtualenv** e deve ser executado em um **terminal separado**.
+> Cada projeto tem sua **própria virtual venv** e deve ser executado em um **terminal separado**.
 
 ---
 
