@@ -120,6 +120,7 @@ source venv/bin/activate
 Instale as dependências:
 
 ```bash
+cd notificacao_ms
 pip install -r requirements.txt
 ```
 
