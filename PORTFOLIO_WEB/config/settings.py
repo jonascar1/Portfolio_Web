@@ -126,5 +126,5 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     
 }
 NOTIFICACAO_MS_URL = 'http://127.0.0.1:8001'
-NOTIFICACAO_MS_API_KEY = '667ab216b65fe324'  # Hash da empresa criada no microservico
+NOTIFICACAO_MS_API_KEY = 'COLE_AQUI_O_HASH_DA_EMPRESA'  # Hash da empresa criada no microservico
 
